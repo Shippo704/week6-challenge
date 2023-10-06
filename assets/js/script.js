@@ -55,9 +55,6 @@ var day5Els = [
     document.getElementById('wind5')
 ]
 
-// OpenWeatherMap URLs
-var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=aa7869e17c88eb4e086651e820469d61";
-
 // Variable declarations to store fetch data
 var cityHistory = [];
 var dates = [6];
@@ -69,6 +66,7 @@ var winds = [6];
 // Get Location data
 function getLocation(city) {
     var locationURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=aa7869e17c88eb4e086651e820469d61";
+    // Fetch Location data from OpenWeatherMap
     fetch(locationURL)
         .then(function (response) {
             return response.json();
@@ -81,11 +79,19 @@ function getLocation(city) {
         }) 
 };
 
-// Fetch OpenWeatherMap data
-fetch(weatherURL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    });
+// Get Weather data
+function getWeather(lat, lon) {
+    var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=aa7869e17c88eb4e086651e820469d61";
+    // Fetch OpenWeatherMap weather data
+    fetch(weatherURL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        });
+    
+}
+
+
+
