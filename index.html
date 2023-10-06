@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <title>Weather Forecast</title>
+</head><
+
+<body>
+
+    <!-- HEADER -->
+    <h1 id="header" class="container">5-Day Weather Forecast</h1>   
+    <input tyepe="text" id="search">
+    <button id="submit">Submit</button>
+
+    <!-- SEARCH HISTORY -->
+    <section id="searchHistory">
+        <h2>Search History:</h2>
+        <ul id="cityHistory"></ul>
+    </section>
+
+    <!-- WEATHER DISPLAYS -->
+    <section id="weatherBox" class="container">
+
+        <!-- 1 DAY WEATHER CARD -->
+        <section class="row">
+            <section class="weatherCard">
+                <h2>Current Weather:</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon" alt="Current weather display">
+                    <p id="temperature">Temperature: </p>
+                    <p id="humidity">Humidity: </p>
+                    <p id="wind">Wind: </p>
+                </div>
+            </section>
+        </section>
+
+        <!-- 5 DAY WEATHER CARDS -->
+        <section class="row">
+
+            <!-- DAY 1 -->
+            <section class="weatherCard">
+                <h2>Day 1</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date1"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon1" alt="Weather forecast day 1">
+                    <p id="temperature1">Tempterature: </p>
+                    <p id="humidity1">Humidity: </p>
+                    <p id="wind1">Wind: </p>
+                </div>
+            </section>
+
+            <!-- DAY 2 -->
+            <section class="weatherCard">
+                <h2>Day 2</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date2"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon2" alt="Weather forecast day 2">
+                    <p id="temperature2">Tempterature: </p>
+                    <p id="humidity2">Humidity: </p>
+                    <p id="wind2">Wind: </p>
+                </div>
+            </section>
+
+            <!-- DAY 3 -->
+            <section class="weatherCard">
+                <h2>Day 3</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date3"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon3" alt="Weather forecast day 3">
+                    <p id="temperature3">Tempterature: </p>
+                    <p id="humidity3">Humidity: </p>
+                    <p id="wind3">Wind: </p>
+                </div>
+            </section>
+
+            <!-- DAY 4 -->
+            <section class="weatherCard">
+                <h2>Day 4</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date4"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon4" alt="Weather forecast day 4">
+                    <p id="temperature4">Tempterature: </p>
+                    <p id="humidity4">Humidity: </p>
+                    <p id="wind4">Wind: </p>
+                </div>
+            </section>
+
+            <!-- DAY 5 -->
+            <section class="weatherCard">
+                <h2>Day 5</h2>
+                <div class="weather">
+                    <p id="city"></p>
+                    <p id="date5"></p>
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weatherIcon5" alt="Weather forecast day 5">
+                    <p id="temperature5">Tempterature: </p>
+                    <p id="humidity5">Humidity: </p>
+                    <p id="wind5">Wind: </p>
+                </div>
+            </section>
+        </section>
+
+    </section>
+
+
+
+
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+
+</html>
