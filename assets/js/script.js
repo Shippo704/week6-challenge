@@ -56,7 +56,6 @@ var day5Els = [
 ]
 
 // OpenWeatherMap URLs
-var locationURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=aa7869e17c88eb4e086651e820469d61";
 var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=aa7869e17c88eb4e086651e820469d61";
 
 // Variable declarations to store fetch data
@@ -67,6 +66,20 @@ var temps = [6];
 var humidities = [6];
 var winds = [6];
 
+// Get Location data
+function getLocation(city) {
+    var locationURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=aa7869e17c88eb4e086651e820469d61";
+    fetch(locationURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            var lat = data[0].lat;
+            var lon = data[0].lon;
+            getWeather(lat, lon);
+        }) 
+};
 
 // Fetch OpenWeatherMap data
 fetch(weatherURL)
