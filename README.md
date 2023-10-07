@@ -3,8 +3,11 @@
 ## Table of Contents
 
 -[Description](#description)
+
 -[Usage](#usage)
+
 -[Visual](#visual)
+
 -[URLs](#urls)
 
 ## Description
@@ -20,11 +23,6 @@ The user only needs to enter the name of a city into the search bar, then click 
 Fullscreen application:
 
 ![This is an image of the fullscreen webpage](./images/weatherAppFullScreen.jpeg)
-
-
-Half screen application:
-
-![This is an image of the halfscreen webpage](./images/weatherAppHalfScreen.jpeg)
 
 ## URLs
 

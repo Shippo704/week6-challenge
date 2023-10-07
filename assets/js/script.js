@@ -1,7 +1,7 @@
 // Element declarations
 var searchInputEl = document.getElementById('search');
 var searchButtonEl = document.getElementById('submit');
-var city = document.getElementById('city');
+var cityEl = document.getElementById('city');
 var searchHistory = document.getElementById('searchHistory');
 var indexList = [0, 7, 15, 23, 31, 39];
 
@@ -63,6 +63,7 @@ function getLocation(city) {
             console.log(data);
             var lat = data[0].lat;
             var lon = data[0].lon;
+            cityEl.textContent = "Current City: " + city;
             getWeather(lat, lon);
         }) 
 };
@@ -158,7 +159,7 @@ function displaySearchHistory() {
         // create button
         var container = document.getElementById(search_history[i]);
         var button = document.createElement("button");
-        button.setAttribute("value", search_history[i]);
+        button.setAttribute("value", "button"+i);
         button.textContent = search_history[i];
         container.appendChild(button);
         // add event listener and functionality to button
