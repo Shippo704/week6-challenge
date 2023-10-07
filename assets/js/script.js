@@ -1,6 +1,6 @@
 // Element declarations
 var searchInputEl = document.getElementById('search');
-var searchButtonEl = document.getElementById('sumbit');
+var searchButtonEl = document.getElementById('submit');
 var city = document.getElementById('city');
 var searchHistory = document.getElementById('searchHistory');
 var indexList = [0, 7, 15, 23, 31, 39];
@@ -44,7 +44,7 @@ var humidity5 = document.getElementById('humidity5');
 var wind5 = document.getElementById('wind5');
 
 // Variable declarations to store fetch data
-var search_history = JSON.parse(localStorage.getItem("search_history",)) || [];
+var search_history = [];
 var dates = [6];
 var weathers = [6];
 var temps = [6];
@@ -91,7 +91,7 @@ function displayWeatherData(data){
     // Organise the necessary data
     for (i=0; i<6;i++) {
         dates[i] = new Date(data.list[indexList[i]].dt*1000);
-        temps[i] = data.list[indexList[i]].main.temp;
+        temps[i] = Math.floor(data.list[indexList[i]].main.temp-273);
         humidities[i] = data.list[indexList[i]].main.humidity;
         winds[i] = data.list[indexList[i]].wind.speed;
     }
@@ -99,45 +99,49 @@ function displayWeatherData(data){
     // Print data on the screen
     // Current
     date0.textContent = dates[0];
-    temp0.textContent = "Temperature: " + temps[0] + "Celcius";
+    temp0.textContent = "Temperature: " + temps[0] + " Celcius";
     humidity0.textContent = "Humidity: " + humidities[0] + "%";
-    wind0.textContent = "Wind: " = winds[0] + "km/h";
+    wind0.textContent = "Wind: " + winds[0] + "km/h";
     weather0.setAttribute("src", `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`);
     
     // Day 1
     date1.textContent = dates[1];
-    temp1.textContent = "Temperature: " + temps[1] + "Celcius";
+    temp1.textContent = "Temperature: " + temps[1] + " Celcius";
     humidity1.textContent = "Humidity: " + humidities[1] + "%";
-    wind1.textContent = "Wind: " = winds[1] + "km/h";
+    wind1.textContent = "Wind: " + winds[1] + "km/h";
     weather1.setAttribute("src", `https://openweathermap.org/img/w/${data.list[1].weather[0].icon}.png`);
 
     // Day 2
     date2.textContent = dates[2];
-    temp2.textContent = "Temperature: " + temps[2] + "Celcius";
+    temp2.textContent = "Temperature: " + temps[2] + " Celcius";
     humidity2.textContent = "Humidity: " + humidities[2] + "%";
-    wind2.textContent = "Wind: " = winds[2] + "km/h";
+    wind2.textContent = "Wind: " + winds[2] + "km/h";
     weather2.setAttribute("src", `https://openweathermap.org/img/w/${data.list[2].weather[0].icon}.png`);
 
     // Day 1
     date3.textContent = dates[3];
-    temp3.textContent = "Temperature: " + temps[3] + "Celcius";
+    temp3.textContent = "Temperature: " + temps[3] + " Celcius";
     humidity3.textContent = "Humidity: " + humidities[3] + "%";
-    wind3.textContent = "Wind: " = winds[3] + "km/h";
+    wind3.textContent = "Wind: " + winds[3] + "km/h";
     weather3.setAttribute("src", `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`);
 
     // Day 4
     date4.textContent = dates[4];
-    temp4.textContent = "Temperature: " + temps[4] + "Celcius";
+    temp4.textContent = "Temperature: " + temps[4] + " Celcius";
     humidity4.textContent = "Humidity: " + humidities[4] + "%";
-    wind4.textContent = "Wind: " = winds[4] + "km/h";
+    wind4.textContent = "Wind: " + winds[4] + "km/h";
     weather4.setAttribute("src", `https://openweathermap.org/img/w/${data.list[4].weather[0].icon}.png`);
 
     // Day 5
     date5.textContent = dates[5];
-    temp5.textContent = "Temperature: " + temps[5] + "Celcius";
+    temp5.textContent = "Temperature: " + temps[5] + " Celcius";
     humidity5.textContent = "Humidity: " + humidities[5] + "%";
-    wind5.textContent = "Wind: " = winds[5] + "km/h";
+    wind5.textContent = "Wind: " + winds[5] + "km/h";
     weather5.setAttribute("src", `https://openweathermap.org/img/w/${data.list[5].weather[0].icon}.png`);
+
+    // Search History
+    setSearchHistory(city_name);
+    displaySearchHistory();
 }
 
 // Display search history
@@ -150,6 +154,7 @@ function displaySearchHistory() {
         // make a new entry in the history
         var listEl = document.createElement("li");
         listEl.setAttribute("id", search_history[i]);
+        searchHistory.appendChild(listEl);
         // create button
         var container = document.getElementById(search_history[i]);
         var button = document.createElement("button");
@@ -166,7 +171,7 @@ function displaySearchHistory() {
 
 // Set search history
 function setSearchHistory(searchInput) {
-    localStorage.setItem("city_history", JSON.stringify(searchInput))
+    localStorage.setItem("search_history", JSON.stringify(searchInput))
 }
 
 // Set city function
@@ -177,4 +182,4 @@ function setCity(event) {
 }
 
 // Search button event listener
-searchButton.addEventListener('click', setCity);
+searchButtonEl.addEventListener('click', setCity);
